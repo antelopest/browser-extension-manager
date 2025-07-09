@@ -1,0 +1,13 @@
+@use 'sass:map';
+
+@use '../../variables/variables' as *;
+
+@mixin responsive-container($breakpoint) {
+  @if map.has-key($container, $breakpoint) {
+    $width: map.get($container, $breakpoint);
+
+    @media (min-width: $width) {
+      max-width: $width;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+@use 'sass:map';
+
+@use '../../variables/variables' as *;
+
+@mixin themes($themes) {
+  @each $name, $value in $themes {
+    .#{$name} {
+      $theme: $value !global;
+      @content;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map.get($theme, $key);
+}

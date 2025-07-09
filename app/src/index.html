@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Browser extension manager UI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon/favicon.png">
+</head>
+<body>
+<div class="background-gradient"></div>
+
+<div class="container">
+    <header class="header">
+        <div class="header__logo">
+            <svg-loader-component src="./assets/images/icons/logo.svg"></svg-loader-component>
+        </div>
+
+        <div class="header__theme-toggle">
+            <change-theme-component></change-theme-component>
+<!--            <button class="theme-toggle">-->
+<!--                <svg-loader-component src="./assets/images/icons/icon-sun.svg"></svg-loader-component>-->
+<!--            </button>-->
+        </div>
+    </header>
+
+    <main class="main">
+        <filter-extensions-component></filter-extensions-component>
+        <extensions-list-component></extensions-list-component>
+    </main>
+
+    <footer class="footer">
+    </footer>
+</div>
+</body>
+</html>

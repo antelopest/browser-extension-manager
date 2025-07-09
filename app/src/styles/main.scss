@@ -1,0 +1,337 @@
+@use 'sass:map';
+
+@use 'variables/variables' as *;
+
+@use 'mixins/responsive/container';
+@use 'mixins/responsive/extensions';
+@use 'mixins/responsive/extension';
+
+@use 'mixins/themes/themes';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-style: $font-style;
+}
+
+@include themes.themes($themes) {
+  body {
+    color: themes.themed(color-secondary);
+  }
+}
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @include container.responsive-container(sm);
+  @include container.responsive-container(md);
+  @include container.responsive-container(lg);
+  @include container.responsive-container(xl);
+  @include container.responsive-container(xxl);
+}
+
+.background-gradient {
+  z-index: -1;
+
+  min-width: 100vw;
+  min-height: 100vh;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+@include themes.themes($themes) {
+  .background-gradient {
+    background: themes.themed(bg-color);
+    background: themes.themed(bg-gradient);
+  }
+}
+
+.header {
+  border-radius: $border-radius;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: $section-margin;
+  height: 75px;
+  padding: $padding;
+
+  &__logo {
+    svg {
+      width: 170px;
+      height: 40px;
+    }
+  }
+
+  &__theme-toggle {
+    .theme-toggle {
+      border-radius: $border-radius;
+      height: 45px;
+      width: 45px;
+      outline: none;
+      border: none;
+      cursor: pointer;
+
+      &:focus {
+        outline-offset: 3px;
+      }
+    }
+  }
+}
+
+@include themes.themes($themes) {
+  .header {
+    background-color: themes.themed(header-bg);
+
+    &__logo {
+      .theme {
+        fill: themes.themed(color-third);
+      }
+    }
+
+    &__theme-toggle {
+      .theme-toggle {
+        background-color: themes.themed(header-btn-toggle-bg);
+
+        &:focus {
+          outline: 2px solid themes.themed(btn-focus-outline-color);
+          outline-offset: 3px;
+        }
+      }
+    }
+  }
+}
+
+.filter {
+  margin: $section-margin;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $gap;
+  }
+}
+
+@include themes.themes($themes) {
+  .filter {
+    &__title {
+      color: themes.themed(color-third);
+    }
+  }
+}
+
+.extensions {
+  display: grid;
+  gap: $gap;
+
+  margin: $section-margin;
+
+  @include extensions.responsive-extensions(sm);
+  @include extensions.responsive-extensions(md);
+  @include extensions.responsive-extensions(lg);
+  @include extensions.responsive-extensions(xl);
+  @include extensions.responsive-extensions(xxl);
+}
+
+.extension {
+  padding: $padding;
+  border-radius: $border-radius;
+  border: 1px solid #51576d;
+  background-color: #1f2535;
+
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+
+  @include extension.responsive-extension(sm);
+  @include extension.responsive-extension(md);
+  @include extension.responsive-extension(lg);
+  @include extension.responsive-extension(xl);
+  @include extension.responsive-extension(xxl);
+
+  &__header {
+    display: flex;
+    gap: $gap;
+  }
+
+  &__image {
+    width: 60px;
+    height: 60px;
+
+    svg {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  &__description {
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .extension__button--toggle {
+      border-radius: $button-border-radius;
+
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+      }
+
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: '';
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+      }
+
+      input:checked + .slider {
+        background-color: #f25951;
+      }
+
+      input:focus + .slider {
+        box-shadow: 0 0 1px #f25951;
+      }
+
+      input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+      }
+
+      .slider.round {
+        border-radius: 34px;
+      }
+
+      .slider.round:before {
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+@include themes.themes($themes) {
+  .extension {
+    border: 1px solid themes.themed(extension-bg-border-color);
+    background-color: themes.themed(extension-bg-color);
+
+    &__title {
+      color: themes.themed(color-third);
+    }
+  }
+}
+
+.extension__button,
+.filter__button {
+  font-family: $button-font-family;
+  font-size: $button-font-size;
+  font-weight: $button-weight;
+  padding: $button-padding;
+  border-radius: $button-border-radius;
+  outline: none;
+  cursor: pointer;
+}
+
+@include themes.themes($themes) {
+  .extension__button,
+  .filter__button {
+    color: themes.themed(color-third);
+    background-color: themes.themed(btn-bg-color);
+    border: 1px solid themes.themed(btn-border-color);
+
+    &.active {
+      color: themes.themed(btn-active-color);
+      background-color: themes.themed(btn-active-bg);
+      border: 1px solid themes.themed(btn-active-border-color);
+
+      &:hover {
+        color: themes.themed(btn-active-color);
+        background-color: themes.themed(btn-active-bg);
+        border: 1px solid themes.themed(btn-active-border-color);
+      }
+    }
+
+    &:hover {
+      background-color: themes.themed(btn-hover-bg-color);
+    }
+
+    &:focus {
+      outline: 2px solid themes.themed(btn-focus-outline-color);
+      outline-offset: 3px;
+    }
+  }
+}
+
+.svg-loader {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

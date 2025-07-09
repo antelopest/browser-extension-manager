@@ -1,0 +1,119 @@
+$gap: 15px;
+$padding: 15px;
+
+$font-size: 14px;
+$font-family: 'Nono Sans', sans-serif;
+$font-weight: 400;
+$font-style: normal;
+
+$section-title-font-size: 24px;
+
+$section-margin: 40px 0;
+
+$border-radius: 15px;
+
+$button-border-radius: 18px;
+$button-padding: 10px 15px;
+$button-font-family: 'Nono Sans', sans-serif;
+$button-font-size: 14px;
+$button-weight: 500;
+
+$container: (
+  xs: 100%,
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+
+$extensions: (
+  xs: (
+    grid-template-columns: repeat(1, 1fr)
+  ),
+  sm: (
+    grid-template-columns: repeat(1, 1fr)
+  ),
+  md: (
+    grid-template-columns: repeat(2, 1fr)
+  ),
+  lg: (
+    grid-template-columns: repeat(2, 1fr)
+  ),
+  xl: (
+    grid-template-columns: repeat(3, 1fr)
+  ),
+  xxl: (
+    grid-template-columns: repeat(3, 1fr)
+  )
+);
+
+$extension: (
+  xs: (),
+  sm: (),
+  md: (
+    height: 120px
+  ),
+  lg: (
+    height: 100px
+  ),
+  xl: (
+    height: 100px
+  ),
+  xxl: (
+    height: 100px
+  )
+);
+
+$light: (
+  bg-color: #effbf9,
+  bg-gradient: linear-gradient(
+      0deg,
+      rgba(236, 243, 253, 1) 0%,
+      rgba(239, 251, 249, 1) 100%
+    ),
+  color-primary: #fbffff,
+  color-secondary: #595a60,
+  color-third: #051036,
+  header-bg: #fcfdff,
+  header-btn-toggle-bg: #eeefea,
+  btn-focus-outline-color: #d36665,
+  btn-border-color: #dee5eb,
+  btn-bg-color: #fafeff,
+  btn-hover-bg-color: #f6fafd,
+  btn-active-color: #ffebe9,
+  btn-active-bg: #f25c56,
+  btn-active-border-color: #f25c56,
+  extension-bg-color: #fcfdff,
+  extension-bg-border-color: #dee5eb
+);
+
+$dark: (
+  bg-color: #04091c,
+  bg-gradient: linear-gradient(
+      0deg,
+      rgba(9, 22, 64, 1) 0%,
+      rgba(4, 9, 28, 1) 100%
+    ),
+  color-primary: #fbffff,
+  color-secondary: #cdd1da,
+  color-third: #f8fcff,
+  header-bg: #1f2535,
+  header-btn-toggle-bg: #2e364b,
+  btn-focus-outline-color: #f25c56,
+  btn-border-color: #50566c,
+  btn-bg-color: #1f2535,
+  btn-hover-bg-color: #525868,
+  btn-active-color: #2a0820,
+  btn-active-bg: #f25c56,
+  btn-active-border-color: #f25c56,
+  extension-bg-color: #1f2535,
+  extension-bg-border-color: #51576d
+);
+
+$themes: (
+  light: $light,
+  dark: $dark
+);
+
+$theme: null !default;
