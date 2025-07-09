@@ -5,15 +5,18 @@
   "license": "MIT",
   "type": "module",
   "main": "index.js",
+  "homepage": "https://antelopest.github.io/browser-extension-manager",
   "scripts": {
     "dev": "webpack serve --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "autoprefixer": "^10.4.21",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^13.0.0",
     "css-loader": "^7.1.2",
+    "gh-pages": "^6.3.0",
     "html-loader": "^5.1.0",
     "html-webpack-plugin": "^5.6.3",
     "mini-css-extract-plugin": "^2.9.2",
