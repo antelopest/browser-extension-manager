@@ -22,3 +22,8 @@ from [FrontendMentor.io](https://www.frontendmentor.io/challenges/browser-extens
           - Dictionaries   
 - **Responsive design:** Support both desktop and mobile
 - **Themes support:** Light & Dark modes via `prefers-color-scheme` media query
+
+## Scripts
+
+- `npm run dev` - dev build
+- `npm run build` - prod build
