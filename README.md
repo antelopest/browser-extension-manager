@@ -10,8 +10,20 @@ from [FrontendMentor.io](https://www.frontendmentor.io/challenges/browser-extens
 - **Bundler:** Webpack
 - **CSS Preprocessor:** SCSS
 - **JavaScript:** ES Module
-    - **Components:** Web Components (Custom Elements)
+    - **Web Components (Custom Elements):**
       - SVG loader
       - Extension card
+      - Extension list
+      - Extension filter
+      - Change theme button
+  - **DI Container**
+      - Services:
+          - Extensions
+          - Dictionaries   
 - **Responsive design:** Support both desktop and mobile
 - **Themes support:** Light & Dark modes via `prefers-color-scheme` media query
+
+## Scripts
+
+- `npm run dev` - dev build
+- `npm run build` - prod build
