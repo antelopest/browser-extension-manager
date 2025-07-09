@@ -13,5 +13,8 @@ from [FrontendMentor.io](https://www.frontendmentor.io/challenges/browser-extens
     - **Components:** Web Components (Custom Elements)
       - SVG loader
       - Extension card
+      - Extension list
+      - Exntesion filter
+      - Change theme button
 - **Responsive design:** Support both desktop and mobile
 - **Themes support:** Light & Dark modes via `prefers-color-scheme` media query
