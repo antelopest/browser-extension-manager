@@ -10,13 +10,13 @@ from [FrontendMentor.io](https://www.frontendmentor.io/challenges/browser-extens
 - **Bundler:** Webpack
 - **CSS Preprocessor:** SCSS
 - **JavaScript:** ES Module
-    - **Components:** Web Components (Custom Elements)
+    - **Web Components (Custom Elements):**
       - SVG loader
       - Extension card
       - Extension list
-      - Exntesion filter
+      - Extension filter
       - Change theme button
-  - DI Container
+  - **DI Container**
       - Services:
           - Extensions
           - Dictionaries   
