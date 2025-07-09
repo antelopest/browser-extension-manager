@@ -73,7 +73,9 @@ export default class ExtensionsService {
 
     this.extensions[index] = extension;
 
-    this.notify();
+    if (this.filter.active !== 'all') {
+      this.notify();
+    }
   }
 
   deleteOne(extension) {

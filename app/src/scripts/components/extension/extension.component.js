@@ -27,22 +27,23 @@ export default class ExtensionComponent extends HTMLElement {
     </header>
     <footer class="extension__footer">
       <button class="extension__button extension__button--remove">Remove</button>
-        <div class="extension__button--toggle">
-        <label class="switch" for="active">
-          <input type="checkbox" name="active" ${active ? 'checked' : ''}>
-          <span class="slider round"></span>
-        </label>
-    </div>
+        <div class="extension__button--switch" role="switch" tabindex="0" aria-checked="${active ? 'true' : 'false'}">
+          <span class="switch__slider"></span>
+        </div>
     </footer>
   `;
 
     const buttonRemoveEl = articleEl.querySelector('button');
-    const sliderEl = articleEl.querySelector('.slider');
-
-    // contenteditable="true"
+    const switchEl = articleEl.querySelector('[role="switch"]');
 
     buttonRemoveEl.addEventListener('click', this.removeExtension.bind(this));
-    sliderEl.addEventListener('click', this.toggleActive.bind(this));
+    switchEl.addEventListener('click', this.toggleActive.bind(this));
+    switchEl.addEventListener('keydown', (e) => {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        this.toggleActive.call(this);
+      }
+    });
 
     this.replaceChildren(articleEl);
   }
@@ -60,8 +61,16 @@ export default class ExtensionComponent extends HTMLElement {
 
   toggleActive() {
     this.#extension.active = !this.#extension.active;
-    this.extensionsService.updateOne(this.#extension);
+
+    const switchEl = this.querySelector('[role="switch"]');
+    switchEl.setAttribute('aria-checked', String(this.#extension.active));
+
+    // setTimeout(() => {
+    //   this.extensionsService.updateOne(this.#extension);
+    // }, 2000);
   }
+
+  a;
 
   constructor() {
     super();

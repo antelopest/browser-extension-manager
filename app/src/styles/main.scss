@@ -210,68 +210,41 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 
-    .extension__button--toggle {
-      border-radius: $button-border-radius;
+    .extension__button--switch {
+      width: 60px;
+      height: 34px;
+      background: #C6C6C6; // 515767
+      border-radius: 50px;
+      position: relative;
+      cursor: pointer;
+      outline: none;
 
-      .switch {
-        position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 34px;
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      align-items: center;
+
+      &[aria-checked='true'] {
+        background-color: themes.themed(btn-active-bg);
+
+        justify-content: end;
       }
 
-      .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
+      &:focus {
+        outline: 2px solid themes.themed(btn-focus-outline-color);
+        outline-offset: 3px;
       }
 
-      .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        -webkit-transition: 0.4s;
-        transition: 0.4s;
-      }
-
-      .slider:before {
-        position: absolute;
-        content: '';
-        height: 26px;
+      .switch__slider {
         width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        -webkit-transition: 0.4s;
-        transition: 0.4s;
-      }
-
-      input:checked + .slider {
-        background-color: #f25951;
-      }
-
-      input:focus + .slider {
-        box-shadow: 0 0 1px #f25951;
-      }
-
-      input:checked + .slider:before {
-        -webkit-transform: translateX(26px);
-        -ms-transform: translateX(26px);
-        transform: translateX(26px);
-      }
-
-      .slider.round {
-        border-radius: 34px;
-      }
-
-      .slider.round:before {
+        height: 26px;
+        margin: 0 4px;
+        background: themes.themed(color-third);
         border-radius: 50%;
       }
+
     }
   }
 }
