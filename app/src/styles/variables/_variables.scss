@@ -49,8 +49,12 @@ $extensions: (
 );
 
 $extension: (
-  xs: (),
-  sm: (),
+  xs: (
+    height: 120px
+  ),
+  sm: (
+    height: 120px
+  ),
   md: (
     height: 120px
   ),
@@ -71,7 +75,7 @@ $light: (
       0deg,
       rgba(236, 243, 253, 1) 0%,
       rgba(239, 251, 249, 1) 100%
-    ),
+  ),
   color-primary: #fbffff,
   color-secondary: #595a60,
   color-third: #051036,
@@ -94,7 +98,7 @@ $dark: (
       0deg,
       rgba(9, 22, 64, 1) 0%,
       rgba(4, 9, 28, 1) 100%
-    ),
+  ),
   color-primary: #fbffff,
   color-secondary: #cdd1da,
   color-third: #f8fcff,
