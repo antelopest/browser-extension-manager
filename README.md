@@ -1,5 +1,9 @@
 # Browser extension manager UI #
 
+## Github Pages
+
+[Browser extension manager](https://antelopest.github.io/browser-extension-manager/)
+
 ## Idea
 
 The idea, design, assets (fonts, images, icons) for the **Browser extension manager UI** project are taken
